@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云 · 行业观察专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f2ed;
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            line-height: 1.7;
+            color: #2c2b28;
+        }
+
+        /* ----- 深色头图 hero ----- */
+        .hero {
+            background: linear-gradient(145deg, #1f1e1b 0%, #2b2925 70%, #3a3630 100%);
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid #c7a96b;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: repeating-linear-gradient(90deg, #c7a96b 0px, #c7a96b 12px, transparent 12px, transparent 24px);
+            opacity: 0.5;
+        }
+
+        .hero-title {
+            font-size: clamp(2.6rem, 7vw, 4.4rem);
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            color: #ede7db;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #c7b596;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 300;
+            border-top: 1px solid rgba(199, 169, 107, 0.4);
+            padding-top: 1rem;
+            display: inline-block;
+        }
+
+        .hero-quote {
+            max-width: 640px;
+            margin: 2rem auto 0;
+            color: #d6cebe;
+            font-style: italic;
+            font-size: 1.05rem;
+            border-left: 2px solid #c7a96b;
+            padding-left: 1.5rem;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        /* ----- 浅色正文区 ----- */
+        .container {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 5rem;
+        }
+
+        .section-head {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #302d28;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #d6cebe;
+            letter-spacing: 0.02em;
+        }
+
+        .section-head span {
+            background: #c7a96b;
+            color: #1f1e1b;
+            display: inline-block;
+            padding: 0 0.6rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            vertical-align: middle;
+            margin-right: 0.6rem;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 500;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0 3rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2rem 1.8rem;
+            border-radius: 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e5dfd4;
+            transition: box-shadow 0.25s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            color: #3a3630;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #4c4842;
+        }
+
+        .inline-link {
+            color: #896f3f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .inline-link:hover {
+            color: #b8913b;
+            text-decoration-thickness: 2px;
+        }
+
+        .text-block {
+            margin: 2.2rem 0;
+            padding: 0 0.5rem;
+        }
+
+        .text-block p {
+            margin-bottom: 1.4rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-mini {
+            background: #eae6de;
+            padding: 2rem 2.2rem;
+            margin: 2.5rem 0;
+            border-left: 4px solid #c7a96b;
+        }
+
+        .faq-mini dt {
+            font-weight: 600;
+            color: #2c2b28;
+            margin-top: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-mini dd {
+            margin-left: 0.6rem;
+            color: #4c4842;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini dt:first-of-type {
+            margin-top: 0;
+        }
+
+        .footnote {
+            text-align: right;
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d6cebe;
+            color: #6b655b;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+        }
+
+        .footnote a {
+            color: #896f3f;
+            text-decoration: none;
+            border-bottom: 1px dotted #bcaa8a;
+        }
+
+        .footnote a:hover {
+            border-bottom: 2px solid #896f3f;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                min-height: 60vh;
+                padding: 2rem 1.2rem 3rem;
+            }
+
+            .hero-quote {
+                font-size: 0.95rem;
+                padding-left: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1.2rem 3rem;
+            }
+
+            .section-head {
+                font-size: 1.5rem;
+            }
+
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                letter-spacing: 0.02em;
+            }
+
+            .hero-sub {
+                letter-spacing: 0.15em;
+                font-size: 0.9rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- hero 深色头图 -->
+    <header class="hero">
+        <h1 class="hero-title">开云</h1>
+        <div class="hero-sub">Kering · 跨域观察</div>
+        <div class="hero-quote">
+            「一个名字，承载着从古老织物到当代美学的多重叙事。它不是简单的商业符号，而是时间与土地共同书写的索引。」
+        </div>
+    </header>
+
+    <!-- 正文浅色区 -->
+    <main class="container">
+
+        <!-- 背景说明 -->
+        <section>
+            <h2 class="section-head"><span>01</span> 名字的质地</h2>
+            <div class="text-block">
+                <p>「开云」二字，拆解开来是打开与云聚。在中国语境里，它让人联想到开阔之境与自然流动的气韵；而在全球产业版图中，这个名字背后是一个关于工艺、材料与人文脉络的聚合体。从传统纺织到现代材料科学，从地方手作到跨国协作，<a href="https://m-portal-kering.com" class="inline-link">开云</a>所指向的从来不是单一产品，而是一种持续对话的状态——人与物、过去与未来、本地与远方之间的交流。</p>
+                <p>这种对话在近二十年里变得更加多元。无论是原料产地的生态恢复，还是废弃织物的循环再生，抑或是对古老染织技艺的重新发掘，都呈现出一种温和而坚定的转型。它不追求颠覆，而是强调延续中的更新——这正是“开云”这个词语给予我们的隐喻：云聚云散，形态可变，但水汽的本质始终在场。</p>
+            </div>
+        </section>
+
+        <!-- 三段自然介绍 用卡片+文字组合 -->
+        <section>
+            <h2 class="section-head"><span>02</span> 三条线索</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>溯源 · 纤维的故事</h3>
+                    <p>从亚麻、羊毛到创新生物基材料，每一根纤维都携带着产地气候、土壤与人文的印记。关注供应链透明化与可追溯体系，让“从田间到衣橱”不再是一句空话。</p>
+                </div>
+                <div class="card">
+                    <h3>结构 · 功能的诗学</h3>
+                    <p>服装与配饰的本质是身体的延伸。通过版型、剪裁与复合面料，探索穿着者与环境的交互。轻盈、耐用、适应多变场景，是功能设计给出的温和答案。</p>
+                </div>
+                <div class="card">
+                    <h3>循环 · 物的余生</h3>
+                    <p>一件物品的生命不应止于被丢弃。二手流转、修复服务、材料回收——这些实践正在重塑“拥有”与“使用”的边界。让物品在循环中获得新的叙事。</p>
+                </div>
+            </div>
+            <div class="text-block">
+                <p>这三条线索彼此交织，共同勾勒出一个更负责任的行业愿景。没有宏大的宣言，只有一次次对细节的重新审视。<a href="https://m-portal-kering.com" class="inline-link">开云</a>所代表的，恰恰是这种在细微处持续做功的耐心。</p>
+            </div>
+        </section>
+
+        <!-- FAQ 摘要风格自然说明 -->
+        <section>
+            <h2 class="section-head"><span>03</span> 常见思索</h2>
+            <dl class="faq-mini">
+                <dt>“开云”是一个品牌吗？</dt>
+                <dd>它不是某个单一品牌，而是一个跨领域的信息与资源平台，连接设计师、原料商、技术开发者与终端用户，推动更透明的行业对话。</dd>
+
+                <dt>普通人如何参与其中？</dt>
+                <dd>了解一件服装的材质来源、选择耐用且可修复的产品、支持本地手工艺——每个人在日常消费中的微小选择，都是参与的一部分。</dd>
+
+                <dt>为什么强调“温和”而非“激进”？</dt>
+                <dd>真正的变化往往需要长时间浸润。与其依靠恐慌或道德压力，不如用扎实的信息和可靠的产品赢得信任。温和，反而走得更远。</dd>
+            </dl>
+        </section>
+
+        <!-- 页尾访问提示 -->
+        <footer class="footnote">
+            <p>更多关于材料、工艺与行业动态的深度内容，可移步至 <a href="https://m-portal-kering.com">开云</a> 阅读专题文章与案例档案。</p>
+            <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #9a9388;">—— 以观察记录变化，以理解代替判断</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
